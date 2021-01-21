@@ -1,0 +1,107 @@
+
+
+/* top */
+.Top-L { float: left; width: 210px;}
+.Top-L .toptype { width: 208px; background: #fff;}
+.Top-L .toptype ul { padding: 0;}
+.Top-L .toptype ul li { width: 208px; height: 52px; font-size: 1.4rem; text-indent: 3rem; box-sizing: content-box; list-style: none; cursor: pointer; position: relative;}
+.Top-L .toptype ul li:hover { background: #ffcd19;}
+.Top-L .toptype ul li i { position: absolute; left: 0; top: 10px; width: 3px; height: 33px; background: #ffd100; vertical-align: middle; display: block; }
+.Top-L .toptype ul li a { line-height: 52px; font-size: 0.8rem; color: #000;}
+.Top-L .toptype .top-total { width: 208px; height: 55px; line-height: 55px; text-indent: 30px; font-size: 1.0rem; border-bottom: 1px solid #eee;}
+.Top-R { float: right;}
+.Top-R .details { width: 1025px; min-height: 100px; border-radius: 4px; background: #fff; overflow: hidden;}
+.Top-R .details .allrank { width: 1025px; height: 55px; line-height: 55px; border-bottom: 1px solid #eee;}
+.Top-R .details .allrank span { float: left; font-size: 1.0rem; color: #F8F8F8; text-indent: 30px;}
+.Top-R .details .allrank .time-bbb { padding-top: 2px; font-size: 0.8rem; color: #bbb; text-indent: 10px;}
+.Top-R .details ul { margin: 0; padding: 0;}
+.Top-R .details ul li { margin-top: 25px; width: 1025px; height: 255px; }
+.Top-R .details ul li .ranknum { float: left; margin: 20px 0 0 30px; width:110px; height: 110px; align-items: center;}
+.Top-R .details ul li span { display: block;}
+.Top-R .details ul li .ranknum .num { width: 110px; font-size: 1.8rem; text-align: center;}
+.Top-R .details ul li .ranknum .heat { width: 110px; font-size: 0.6rem; color: #bbb; text-align: center;}
+.Top-R .details ul li .ranknum .value { width: 110px; font-size: 0.8rem; font-family: Georgia; color: #444; text-align: center; font-weight: 600;}
+.Top-R .details ul li .top-thumb { float: left; margin-left: 30px; width: 175px; height:250px; cursor: pointer;}
+.Top-R .details ul li .top-thumb img { height: 230px;}
+.Top-R .details ul li .top-info { float: left; margin-left: 20px; width: 555px;}
+.Top-R .details ul li .top-info .title { margin-bottom: 5px; min-height: 24px; font-size: 1.0rem; cursor: pointer;}
+.Top-R .details ul li .top-info .title a { color: #000;}
+.Top-R .details ul li .top-info .title a:hover { color: #d36f16;}
+.Top-R .details ul li .top-info .career { margin: 0 0 30px 0; font-size: 0.6rem; color: #bbb;}
+.Top-R .details ul li .top-info .intro { font-size: 0.8rem;}
+.Top-R .details ul li .showdetails { float: right; margin: 30px 12px 0 0; width: 80px; font-size: 0.8rem; text-align: right;}
+.Top-R .details ul li .showdetails i { margin-left: 3px;}
+.Top-R .details ul li .showdetails a { color: #bbb;}
+.Top-R .details ul li .showdetails a:hover { color: #d36f16;}
+
+.Top-R .details ul li .top-thumb-2 { float: left; margin-left: 30px; width: 150px; height: 150px; border-radius: 50%; display: block; overflow: hidden;}
+.Top-R .details ul li .top-thumb-2 img { width: 150px; }
+
+*, :after, :before {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.am-cf:after, .am-cf:before {
+    content: " ";
+    display: table;
+}
+*, :after, :before {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.am-cf:after {
+    clear: both;
+}
+.am-cf:after, .am-cf:before {
+    content: " ";
+    display: table;
+}
+*, :after, :before {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+
+/* other */
+#main-wrapper { margin: 0 auto; padding-top: 20px; padding-bottom: 20px; background-color: #fff;}
+#meinv-wrapper { margin: 0 auto; background-color: #34343e;}
+
+/* meinv-home */
+.meinv-home-bg { margin: 0 auto; width: 1250px; height: 300px; background-color:#34343e; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; align-self: center;}
+/* meinv-card */
+.meinv-card { margin: 0 auto; width: 540px; height: 250px; text-align: center; }
+.meinv-card .avatar-container { margin: 0 auto; width: 120px; height: 120px; border-radius: 50%; display: block; overflow: hidden; }
+.meinv-card .avatar-container img { }
+.meinv-card .presonal-info { margin: 16px 0 0; font-size: 12px;}
+.meinv-card .presonal-info h3 { margin: 0; font-size: 1.1rem; font-weight: 600; text-align: center; display: inline-table;}
+.meinv-card .position-info { margin-bottom: 24px;}
+.meinv-card .position-info span { font-size: 0.8rem; color: #bbb;}
+.meinv-card .info-num .node { float: left; width: 25%; text-align: center;}
+.meinv-card .info-num .node p { margin: 0; font-size: 0.9rem; color: #999;}
+.meinv-card .info-num .node span { font-weight: 550; color: #34343e;}
+.meinv-card .info-num .node a { color: #f4523b; font-weight: 600;}
+.panel-body { margin: 0 auto; padding: 0 200px; padding-bottom: 20px; width: 1250px; line-height: 30px; font-size: 0.9rem; color: #bdcadb;}
+
+
+
+/* coverbox */
+.coverbox { margin: 0 auto;  width:1250px; overflow: hidden;}
+.coverbox .cover-tit { padding: 0 20px; height: 50px; line-height: 50px; background-color: #34343e; }
+.coverbox .cover-tit .title a { font-size: 1.6rem; color: #262626;}
+.coverbox .cover-tit .more a { padding-right: 8px; font-size: 1.4rem; color: #d36f16;}
+.coverbox .cover-tit .more i { font-size: 1.4rem; color: #d36f16;}
+.coverbox .cover-tit .info { font-size: 1.4rem; color: #666;}
+.coverbox .cover-list { margin-top: 10px;}
+.coverbox .cover-list ul { margin: 0; padding: 0; width: 105%}
+.coverbox .cover-list li.cover-info { margin: 0 10px 10px 0; width: 200px; background-color: #fff;}
+.coverbox .cover-list li.cover-info a { color: inherit; outline: 0;}
+.coverbox .cover-list li.cover-info img { width:200px; height: 273px; border: 0;}
+.coverbox .cover-list .title-info { padding: 11px 16px 13px;}
+.coverbox .cover-list .title-info a { font-size: 1.0rem; display: block; overflow: hidden; white-space: nowrap;}
+.coverbox .cover-list .title-info a:hover { color: #d36f16;}
+.coverbox .cover-list .title-info .region { margin-top: 5px; font-size: 1.2rem; color: #999;}
+.coverbox .cover-des { padding: 10px 20px; width: 1250px; height: auto; line-height: 30px; background-color: #fff; border-bottom: 1px solid #eee; display: inline-table;}
+.coverbox .cover-des .pagedes { font-size: 1.4rem; color: #262626;}
+.coverbox .cover-des .num { font-size: 1.4rem; color: #666;}
+
+

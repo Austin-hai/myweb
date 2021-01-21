@@ -1,0 +1,100 @@
+{% extends "mtu_wo_slider.html" %}
+
+{% load static %}
+{% load mtu_extras %}
+
+<!-- 写入 base.html 中定义的 title -->
+{% block title %}
+    tagcloud
+{% endblock title %}
+
+<!-- 写入 base.html 中定义的 content -->
+
+{% block content %}
+{#<div class="position" style="margin-top:0px;color: #666;background:#34343e;">#}
+{#		<div class="w1200" >#}
+{#			<span><i></i>当前位置 ：</span> <a href="{% url 'mtu:homepage' %}" title="秀图集">秀图集</a> &gt; 标签云#}
+{#		</div>#}
+{#</div>#}
+<div class="list">
+		<div class="w1200 tag" style="background:#34343e;">
+            <div style="padding-top:10px;color: #F6F6F6;"> >
+			   <span><i></i>当前位置 ：</span> <a href="{% url 'mtu:homepage' %}" title="秀图集">秀图集</a> &gt; 标签云
+            </div>
+			<div class="l-title">
+				<h1>秀图集标签云</h1>
+                <!--美女模特-->
+				<div class="label mb40">
+					<div class="w1200">
+						<div class="t-title">
+							<h2>美女模特</h2>
+							<i class="ico-bar cor0 ibar1"></i>
+						</div>
+						<div class="bq cl">
+                            {% if goddesses %}
+                            {% for goddess in goddesses %}
+							<a href="{% url 'mtu:goddess_info' goddess.id %}" title="{{ goddess.artist_name }}" target="_blank">{{ goddess.artist_name }}</a>
+							{% endfor %}
+                            {% endif %}
+						</div>
+					</div>
+				</div>
+
+                {% show_tags %}
+                {% show_styles %}
+{#				{% show_locations %}#}
+{#                {% show_scenes %}#}
+{#                {% show_cloths %}#}
+{#                {% show_careers %}#}
+                <!--机构-->
+				<div class="label mb40">
+					<div class="w1200">
+						<div class="t-title">
+							<h2>机构</h2>
+							<i class="ico-bar cor8 ibar1"></i>
+						</div>
+						<div class="bq cl">
+                            {% for institution in institutions %}
+							<a href="" title="{{ institution.institution_name }}" target="_blank">{{ institution.institution_name }}</a>
+							{% empty %} more
+                            {% endfor %}
+						</div>
+					</div>
+				</div>
+                <!--人体艺术-->
+                <div class="label mb40">
+					<div class="w1200">
+						<div class="t-title">
+							<h2>人体艺术</h2>
+							<i class="ico-bar cor2 ibar1"></i>
+						</div>
+						<div class="bq cl">
+							<a href="" title="大胆人体" target="_blank">大胆人体</a>
+							<a href="" title="顶级人体" target="_blank">顶级人体</a>
+							<a href="" title="日本人体" target="_blank">日本人体</a>
+							<a href="" title="西西人体" target="_blank">西西人体</a>
+							<a href="" title="欧美人体" target="_blank">欧美人体</a>
+							<a href="" title="亚洲人体" target="_blank">亚洲人体</a>
+							<a href="" title="中国人体" target="_blank">中国人体</a>
+						</div>
+					</div>
+				</div>
+				<!--美女年龄-->
+				<div class="label mb40">
+					<div class="w1200">
+						<div class="t-title">
+							<h2>美女年龄</h2>
+							<i class="ico-bar cor6 ibar1"></i>
+						</div>
+						<div class="bq cl">
+							<a href="" title="00后美女" target="_blank">00后美女</a>
+							<a href="" title="90后美女" target="_blank">90后美女</a>
+							<a href="" title="80后美女" target="_blank">80后美女</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+{% endblock content %}

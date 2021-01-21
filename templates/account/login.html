@@ -1,0 +1,82 @@
+
+{% extends "blog_base_woslider.html" %}
+{% load static %}
+
+{% load i18n %}
+{% load account socialaccount %}
+{% block title %}登录{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-sm-8 col-md-6 offset-sm-2 offset-md-3 px-xl-5" style="height: 600px; max-width: 800px">
+            <div class="card rounded-0 px-3 px-lg-4">
+            <br>
+
+            {% get_providers as socialaccount_providers %}
+
+            {% if socialaccount_providers %}
+            <p>
+                {% blocktrans with site.name as site_name %}请登录已有本地账号或<a href="{{ signup_url }}">注册</a>新账号。
+                也可以通过第三方登录:{% endblocktrans %}
+            </p>
+            <div class="socialaccount_ballot  card-header text-center bg-white ">
+                <h5 class="my-1 text-info">第三方登录</h5>
+                <p class="socialaccount_providers">
+                  {% include "socialaccount/snippets/provider_list.html" with process="login" %}
+                </p>
+            </div>
+            {% include "socialaccount/snippets/login_extra.html" %}
+            {% else %}
+            <p>{% blocktrans %}If you have not created an account yet, then please
+            <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
+
+            {% endif %}
+            <div class="card-body card-login ">
+                <div class="card-header text-center bg-white ">
+                    <h5 class="my-1 text-info">本地登录</h5>
+                </div>
+                <form class="login" id="login_form" method="POST" action="{% url 'account_login' %}">
+                    {% csrf_token %}
+                    <div id="div_id_login" class="form-group">
+                        <label for="id_login" class="col-form-label  requiredField">账号<span class="asteriskField">*</span> </label>
+                           <div class="">
+                               <input type="text" name="login" placeholder="请输入用户名" autofocus="autofocus" required id="id_login" class="form-control" />
+                           </div>
+                        <small class="form-text text-muted ml-1">
+                            还没有账号？
+                            <a href="{% url 'account_signup' %}" style="color: cornflowerblue; ">
+                                注册新账号
+                            </a>
+                        </small>
+                    </div>
+
+                    <div class="form-group mb-1" id="div_id_password">
+                         <label for="id_password" class="col-form-label  requiredField">密码<span class="asteriskField">*</span> </label>
+                            <div class="">
+                                <input type="password" name="password" placeholder="请输入密码" required id="id_password" class="form-control" />
+                            </div>
+                        <small class="form-text text-muted ml-1">
+                            <a class="secondaryAction layui-text" href="{% url 'account_reset_password' %}">
+                                忘记密码?
+                            </a>
+                        </small>
+                    </div>
+
+                    <div class="custom-control custom-checkbox mb-2">
+                        <input type="checkbox" name="remember" id="id_remember" checked class="custom-control-input" />
+                        <label for="id_remember" class="custom-control-label">
+                            保持登录
+                        </label>
+                        <button class="justify-content-center primaryAction btn btn-primary" type="submit" id="submit_login">确认</button>
+                    </div>
+
+
+                </form>
+            </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

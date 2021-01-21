@@ -1,0 +1,90 @@
+
+{% extends "mtu_wo_slider.html" %}
+{% load static %}
+
+<!-- 写入 base.html 中定义的 title -->
+{% block title %}
+    美女图集
+{% endblock title %}
+
+<!-- 写入 base.html 中定义的 content -->
+{% block content %}
+<div class="container">
+    <div class="m m1 r1">
+        <div class="w1200">
+			<div class="m-title">
+				<h2><a href="{% url 'mtu:homepage' %}" title="美女图集">美女图集</a></h2>
+				<i class="ico-bar cor1"></i>
+				<p><a href="/yule/meinv/" title="美女图片">美女图片</a>      /      <a href="/yule/rentiyishu/" title="人体艺术">人体艺术</a>      /      <a href="/yule/mingxing/" title="明星图片">明星图片</a></p>
+			</div>
+            <div class="m-list ml1">
+				<ul class="cl">
+                {% for album in albums %}
+					<li style="float: left;clear: none"><a href="{% url 'mtu:album_info' album.id %}" title="{{ album.title }}" target="_blank">
+						<img style="width:224px;height:322px;" src="{{ album.thumb.url }}" data-original="#" alt="{{ album.title }}">
+						<div class="list-tit"><p>{{ album.title }}</p></div>
+					</a></li>
+                {% endfor %}
+                <!-- 页码导航 -->
+                <div class="page" style="clear: both">
+                        <div class="m-auto">
+                            <span class="step-links">
+                                <!-- 如果不是第一页，则显示上翻按钮 -->
+                                {% if page_obj.has_previous %}
+                                <a href="?page=1" class="btn btn-success">
+                                   &laquo; 首页
+                                </a>
+                                <a href="?page={{ page_obj.previous_page_number }}"
+                                class="btn btn-success"
+                                >
+                                上一页
+                                </a>
+                                <a href="?page=1" class="btn btn-success">
+                                 &laquo; 1
+                                </a>
+                                <span>...</span>
+                                <a href="?page={{ page_obj.previous_page_number }}"
+                                class="btn btn-success"
+                                >
+                               {{ page_obj.previous_page_number }}
+                               </a>
+                               {% endif %}
+
+                               <!-- 当前页面 -->
+                               <span class="current btn btn-secondary">
+                                 {{ page_obj.number }}
+                               </span>
+
+                                <!-- 如果不是最末页，则显示下翻按钮 -->
+                               {% if page_obj.has_next %}
+                               <a href="?page={{ page_obj.next_page_number }}"
+                               class="btn btn-success"
+                               >
+                               {{ page_obj.next_page_number }}
+                               </a>
+                               <span>...</span>
+                               <a href="?page={{ page_obj.next_page_number }}"
+                               class="btn btn-success"
+                               >
+                               下一页
+                               </a>
+                               <a href="?page={{ page_obj.paginator.num_pages }}"
+                               class="btn btn-success"
+                               >
+                               {{ page_obj.paginator.num_pages }} &raquo;
+                               </a>
+                               <a href="?page={{ page_obj.paginator.num_pages }}"
+                               class="btn btn-success"
+                               >
+                               尾页 &raquo;
+                               </a>
+                               {% endif %}
+                           </span>
+                        </div>
+                    </div>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock content %}

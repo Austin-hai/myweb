@@ -1,0 +1,275 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v4.0.1">
+
+      <!-- 网址标题 -->
+    <title>Austin | 导航站</title>
+
+    <!-- 加载Bootstrap4文件 -->
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <!-- 加载Font Awesome图标文件 -->
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+    <!-- 加载CSS样式文件 -->
+    <link rel="stylesheet" href="{% static 'cover.css' %}">
+
+    <meta name="msapplication-config" content="/docs/assets/img/favicons/browserconfig.xml">
+    <meta name="theme-color" content="#563d7c">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+  </head>
+
+
+<body>
+
+    <header>
+      <nav class="navbar navbar-expand-md navbar bg-transparent ">
+      <a class="navbar-brand" href="{% url 'home' %}">小憩</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="{% url 'home' %}">首页 <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="#">娱乐电影</a>
+          </li>
+          <li class="nav-item">
+             <a class="nav-link" href="{% url 'friendlink:weblink' %}">网址收藏</a>
+          </li>
+          <li class="nav-item">
+             <a class="nav-link" href="#">简介</a>
+          </li>
+          <!-- Django的 if 模板语句 -->
+          {% if user.is_authenticated %}
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="https://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> {{ user.username }}</a>
+            <div class="dropdown-menu" aria-labelledby="dropdown01">
+              <a class="dropdown-item" href="{% url 'account_logout' %}">退出登录</a>
+              <a class="dropdown-item" href="#">写文章</a>
+              <a class="dropdown-item" href="#">图片上传</a>
+            </div>
+          </li>
+          <!-- 如果用户未登录，则显示 “登录” -->
+          {% else %}
+           <li class="nav-item">
+            <a class="nav-link" href="{% url 'account_login' %}">登录</a>
+           </li>
+           <!-- if 语句在这里结束 -->
+           {% endif %}
+
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
+    </header>
+    <!-- 网站Logo -->
+    <div class="container-fluid d-flex flex-row align-items-center justify-content-center text-white p-4">
+        <img class="web-logo" src="" alt="网站logo">
+        <h3 class="ml-2" id="web-title">Austin 网址导航</h3>
+    </div>
+
+    <!-- 搜索引擎 -->
+    <div class="container">
+        <div class="card mt-3">
+            <div class="card-header d-flex flex-row align-items-center">
+                <img src="https://www.easyicon.net/api/resizeApi.php?id=1275589&size=128" alt="logo" class="category-logo">
+                <h5 class="ml-2 text-white">搜索引擎</h5>
+            </div>
+
+            <div class="card-body d-flex flex-row flex-wrap">
+                <form class="form-inline my-2 my-lg-0 p-3" action="https://cn.bing.com/search" target=_blank>
+                    <input class="form-control mr-sm-2" type="search" placeholder="必应搜索" aria-label="Search" size=40 name=q>
+                    <button class="btn btn-outline-info my-2 my-sm-0" type="submit"><i class="fa fa-search"></i></button>
+                </form>
+                <form class="form-inline my-2 my-lg-0 p-3" action="https://www.baidu.com/baidu" target=_blank>
+                    <input class="form-control mr-sm-2" type="search" placeholder="百度搜索" aria-label="Search" size=40 name=word>
+                    <button class="btn btn-outline-info my-2 my-sm-0" type="submit"><i class="fa fa-search"></i></button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- 网页内容 -->
+    <div class="container">
+
+            <div class="card mt-3">
+                <div class="card-header d-flex flex-row align-items-center">
+                    <img src="https://www.easyicon.net/api/resizeApi.php?id=1274196&amp;size=128" alt="logo" class="category-logo">
+                    <h5 class="ml-2 text-white">影音视频</h5>
+                </div>
+
+                <div class="card-body d-flex flex-row flex-wrap">
+                    {% for medium in mediums %}
+                    <p class="card-text m-3">
+                                <a href="{{ medium.url }}" target="_blank" id="web-url">
+                                    <img src="" alt="logo" class="logo">
+                                    {{ medium.title }}
+                                </a>
+                    </p>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="card mt-3">
+                <div class="card-header d-flex flex-row align-items-center">
+                    <img src="https://www.easyicon.net/api/resizeApi.php?id=1267301&amp;size=128" alt="logo" class="category-logo">
+                    <h5 class="ml-2 text-white">阅读学习</h5>
+                </div>
+
+                <div class="card-body d-flex flex-row flex-wrap">
+                   {% for book in books %}
+                    <p class="card-text m-3">
+                                <a href="{{ book.url }}" target="_blank" id="web-url">
+                                    <img src="" alt="logo" class="logo">
+                                    {{ book.title }}
+                                </a>
+                    </p>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="card mt-3">
+                <div class="card-header d-flex flex-row align-items-center">
+                    <img src="https://www.easyicon.net/api/resizeApi.php?id=1284973&amp;size=128" alt="logo" class="category-logo">
+                    <h5 class="ml-2 text-white">常用工具</h5>
+                </div>
+                <div class="card-body d-flex flex-row flex-wrap">
+                   {% for tool in tools %}
+                    <p class="card-text m-3">
+                                <a href="{{ tool.url }}" target="_blank" id="web-url">
+                                    <img src="" alt="logo" class="logo">
+                                    {{ tool.title }}
+                                </a>
+                    </p>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="card mt-3">
+                <div class="card-header d-flex flex-row align-items-center">
+                    <img src="https://www.easyicon.net/api/resizeApi.php?id=1207738&amp;size=128" alt="logo" class="category-logo">
+                    <h5 class="ml-2 text-white">日常办公</h5>
+                </div>
+
+                <div class="card-body d-flex flex-row flex-wrap">
+                    {% for work in  works %}
+                    <p class="card-text m-3">
+                                <a href="{{ work.url }}" target="_blank" id="web-url">
+                                    <img src="" alt="logo" class="logo">
+                                    {{ work.title }}
+                                </a>
+                    </p>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="card mt-3">
+                <div class="card-header d-flex flex-row align-items-center">
+                    <img src="https://www.easyicon.net/api/resizeApi.php?id=1285099&amp;size=128" alt="logo" class="category-logo">
+                    <h5 class="ml-2 text-white">图库壁纸</h5>
+                </div>
+
+                <div class="card-body d-flex flex-row flex-wrap">
+                     {% for pic in  pics %}
+                    <p class="card-text m-3">
+                                <a href="{{ pic.url }}" target="_blank" id="web-url">
+                                    <img src="" alt="logo" class="logo">
+                                    {{ pic.title }}
+                                </a>
+                    </p>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="card mt-3">
+                <div class="card-header d-flex flex-row align-items-center">
+                    <img src="https://www.easyicon.net/api/resizeApi.php?id=1281067&amp;size=128" alt="logo" class="category-logo">
+                    <h5 class="ml-2 text-white">个人网站</h5>
+                </div>
+
+                <div class="card-body d-flex flex-row flex-wrap">
+                    {% for web in webs %}
+                    <p class="card-text m-3">
+                                <a href="{{ web.url }}" target="_blank" id="web-url">
+                                    <img src="" alt="logo" class="logo">
+                                    {{ web.title }}
+                                </a>
+                    </p>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="card mt-3">
+                <div class="card-header d-flex flex-row align-items-center">
+                    <img src="https://www.easyicon.net/api/resizeApi.php?id=1245144&amp;size=128" alt="logo" class="category-logo">
+                    <h5 class="ml-2 text-white">福利</h5>
+                </div>
+
+                <div class="card-body d-flex flex-row flex-wrap">
+                    {% for fu_li in fu_lis %}
+                    <p class="card-text m-3">
+                                <a href="{{ fu_li.url }}" target="_blank" id="web-url">
+                                    <img src="" alt="logo" class="logo">
+                                    {{ fu_li.title }}
+                                </a>
+                    </p>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="card mt-3">
+                <div class="card-header d-flex flex-row align-items-center">
+                    <img src="https://www.easyicon.net/api/resizeApi.php?id=1245144&amp;size=128" alt="logo" class="category-logo">
+                    <h5 class="ml-2 text-white">社交休闲</h5>
+                </div>
+
+                <div class="card-body d-flex flex-row flex-wrap">
+                    <p class="card-text m-3">
+                        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=110 src="//music.163.com/outchain/player?type=0&id=5455861918&auto=1&height=90"></iframe>
+                    </p>
+                </div>
+            </div>
+    </div>
+
+    <!-- 网页页脚 -->
+    <div class="container-fluid footer-dark bg-dark text-center mt-3 mb-6">
+        <style> a {color: white;}</style>
+        <p class="text-white">CopyRight 2020 by Austin_导航站</p>
+        <a href="" target="_blank"><img src="" alt="警徽"> ICP备号</a>
+    </div>
+
+</body>
+
+</html>

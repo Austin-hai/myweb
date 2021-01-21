@@ -1,0 +1,29 @@
+
+{% extends "mtu_wo_slider.html" %}
+{% load static %}
+
+<!-- 写入 base.html 中定义的 title -->
+{% block title %}
+    机构
+{% endblock title %}
+
+<!-- 写入 base.html 中定义的 content -->
+{% block content %}
+<link rel="stylesheet" href="{% static 'mtu/css/amazeui.min.css' %}" />
+<div class="listbox" style="background:#34343e;">
+    <div class="cover-tit" style="padding-top: 3px;background:#34343e;">
+	    <div class="title am-fl"><h2 style="font-size: 1.0rem; color: #F8F8F8;">美女写真机构及厂商</h2></div>
+    </div>
+    <div class="tags-list" style="background:#34343e;">
+       <ul>
+           {% for institution in institutions %}
+
+          <li class="tags-info am-fl" style="background:#161619;">
+              <a style="color:#bdcadb;" href="{% url 'mtu:institution-info' institution.id %}" target="_blank">{{ institution}}</a><br><span>({{ institution.num_albums }}) 套</span>
+          </li>
+           {% empty %}more
+          {% endfor %}
+       </ul>
+    </div>
+</div>
+{% endblock content %}

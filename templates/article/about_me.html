@@ -1,0 +1,197 @@
+
+{% load static %}
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>关于网站，网站及博主介绍_austin</title>
+    <meta name="description" content="本网站是一个采用django+bootstrap4搭建的个人博客，本着学习和分享的精神，博客项目开源，源代码可以到我的Github中查看，网站建站历程可以查看页面Timeline内容。">
+    <meta name="keywords" content="网站About页面,关于网站,关于博主,关于站长">
+
+    <!-- Bootstrap and font-awesome CSS -->
+    <!-- 加载Bootstrap4文件 -->
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <!-- 加载Font Awesome图标文件 -->
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+    <!-- 加载CSS样式文件 -->
+    <link rel="stylesheet" href="{% static 'article/about_cover.css' %}">
+
+    <meta name="msapplication-config" content="/docs/assets/img/favicons/browserconfig.xml">
+    <meta name="theme-color" content="#563d7c">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+</head>
+<body>
+
+<header>
+    <nav class="navbar navbar-expand-md navbar bg-dark fixed-top ">
+      <a class="navbar-brand " href="{% url 'home' %}">小憩</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse " id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto text-white">
+          <li class="nav-item active">
+            <a class="nav-link " href="{% url 'home' %}">首页 <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="#">娱乐电影</a>
+          </li>
+          <li class="nav-item">
+             <a class="nav-link " href="{% url 'friendlink:weblink' %}">网址收藏</a>
+          </li>
+          <li class="nav-item">
+             <a class="nav-link" href="#">简介</a>
+          </li>
+          <!-- Django的 if 模板语句 -->
+          {% if user.is_authenticated %}
+          <li class="nav-item dropdown ">
+            <a class="nav-link dropdown-toggle " href="https://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> {{ user.username }}</a>
+            <div class="dropdown-menu " aria-labelledby="dropdown01">
+              <a class="dropdown-item " href="{% url 'account_logout' %}">退出登录</a>
+              <a class="dropdown-item " href="#">Another action</a>
+              <a class="dropdown-item " href="#">Something else here</a>
+            </div>
+          </li>
+          <!-- 如果用户未登录，则显示 “登录” -->
+          {% else %}
+           <li class="nav-item">
+            <a class="nav-link " href="{% url 'account_login' %}">登录</a>
+           </li>
+           <!-- if 语句在这里结束 -->
+           {% endif %}
+
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
+</header>
+<!--主要内容块-->
+<div class="container " style="margin-top: 80px">
+    <div class="row" style="text-align: -webkit-left" >
+        <div class="col mt-4" style="background-color: rgba(0, 0, 0, 0.8);" >
+            <div class="row align-items-center justify-content-center">
+                <div class="col text-light">
+                    <h2>About me</h2>
+                    <hr/>
+                    <div>编程渣渣,一个资深coper和外行，不懂深奥的技术，在学习模仿中。</div>
+                    <div>敲代码，主要用Python，django</div>
+                    <div>爱好游泳，看漫画和小说</div>
+                </div>
+            </div>
+            <hr/>
+
+            <h3 style="color: white">联系博主</h3>
+            <br/>
+            <div class="row align-items-center justify-content-center">
+                <div class="col text-light">
+                    <ul>
+                        <li><p>有任何问题，欢迎邮件沟通：邮箱 shuhai2015@sina.com</p></li>
+                        <li><p>本站源码，请访问我的Github，<a href="https://github.com/Austin-hai" target="_blank">本站源码</a>，查看相关代码。</p></li>
+                    </ul>
+                </div>
+            </div>
+            <hr/>
+            <h3 style="color: white">感兴趣项目</h3>
+            <br/>
+            <table class="table">
+                <thead class="thead-dark">
+                <tr>
+                    <th scope="col">项目</th>
+                    <th scope="col">类别</th>
+                    <th scope="col">开启时间</th>
+                    <th scope="col">目前状态</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="table-success">
+                    <th scope="col">Django + bootstrap4</th>
+                    <td>Web开发</td>
+                    <td>2020.11</td>
+                    <td>博客开发：
+                        <a href="/"
+                           style="color: #5897fb"
+                           target="_blank">
+                            Austin的个人网站
+                        </a>
+                    </td>
+                </tr>
+                <tr class="table-success">
+                    <th scope="col">drf + vue全栈教程</th>
+                    <td>Web开发</td>
+                    <td>2021.3</td>
+                    <td>学习中</td>
+                </tr>
+                </tbody>
+            </table>
+            <br/>
+
+            <hr/>
+            <h3 style="color: white">关于本站</h3>
+            <br/>
+            <div class="row align-items-center justify-content-center">
+                <div class="col text-light">
+                    <ul>
+                        <li><p>本站开始创建于2020年12月25日</p></li>
+                        <li><p>本站主要记录austin编程中的学习笔记，可以理解成一个备忘录网站。</p></li>
+                        <li><p>本站目前nginx + uwsgi 部署于阿里云，目前在规划cdn存储、七牛云加速。</p></li>
+                        <li><p>本项目目前还在完善当中，如有建议，欢迎关注主页右栏公众号，或者在文章中评论。</p></li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr/>
+            <h3 style="color: white">关于声明</h3>
+            <br/>
+            <div class="row align-items-center justify-content-center">
+                <div class="col text-light">
+                    <ul>
+                        <li><p>如果您认为本站的任何内容侵犯您的任何权利，请及时与博主联系，博主将第一时间处理。</p></li>
+                        <li><p>本站所有信息和内容均为博主个人观点，如有冒犯，还请见谅。</p></li>
+                        <li><p>本站文章若涉及他人所创作文章内容，本站会注明原文出处。</p></li>
+                        <li><p>除另有声明外，本站内容采用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享署名-非商业使用-相同方式共享4.0国际许可协议</a>进行许可.</p></li>
+                    </ul>
+                </div>
+            </div>
+            <hr/>
+        </div>
+    </div>
+</div>
+<!-- 网页页脚 -->
+ <!-- 网页页脚 -->
+<div class="container-fluid footer-dark bg-dark text-center mt-3 mb-6">
+        <style> a {color: white;}</style>
+        <p class="text-white">CopyRight 2020 by Austin_导航站</p>
+        <a href="" target="_blank"><img src="" alt="警徽"> ICP备号</a>
+</div>
+</body>
+</html>
+
+
+
+

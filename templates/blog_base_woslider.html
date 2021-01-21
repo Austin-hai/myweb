@@ -1,0 +1,112 @@
+
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+     <!-- 预留网站标题的位置 -->
+    <title>{% block title %}{% endblock %}</title>
+    <script src="{% static 'ckeditor/ckeditor/plugins/prism/lib/prism/prism_patched.min.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'prism/prism.css' %}">
+
+      <!-- 引入bootstrap的css文件 -->
+
+    {#    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">#}
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet"  href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+    <!-- 引入monikai.css -->
+    <link rel="stylesheet" href="{% static 'md_css/monokai.css' %}">
+    <link rel="stylesheet" href="{% static 'mtu/css/detial.css' %}">
+    <!-- Bootstrap core CSS -->
+    {#    <link href="{% static 'bootstrap/carousel.css' %}">#}
+    <link href="https://v4.bootcss.com/docs/examples/carousel/carousel.css">
+
+  </head>
+  <body>
+
+    <header>
+      <nav class="navbar navbar-expand-md navbar-dark bg-dark ">
+      <a class="navbar-brand" href="{% url 'home' %}">小憩</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="{% url 'home' %}">首页 <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="#">娱乐电影</a>
+          </li>
+          <li class="nav-item">
+             <a class="nav-link" href="{% url 'friendlink:weblink' %}">网址收藏</a>
+          </li>
+          <li class="nav-item">
+             <a class="nav-link" href="#">归档</a>
+          </li>
+          <!-- Django的 if 模板语句 -->
+          {% if user.is_authenticated %}
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="https://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> {{ user.username }}</a>
+            <div class="dropdown-menu" aria-labelledby="dropdown01">
+              <a class="dropdown-item" href="{% url 'account_logout' %}">退出登录</a>
+              <a class="dropdown-item" href="#">写文章</a>
+              <a class="dropdown-item" href="#">图片上传</a>
+            </div>
+          </li>
+          <!-- 如果用户未登录，则显示 “登录” -->
+          {% else %}
+           <li class="nav-item">
+            <a class="nav-link" href="{% url 'account_login' %}">登录</a>
+           </li>
+           <!-- if 语句在这里结束 -->
+           {% endif %}
+
+
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
+    </header>
+
+    <main role="main">
+        <!-- START THE FEATURETTES -->
+
+{#    <hr class="featurette-divider">#}
+
+    <!-- 预留具体页面的位置 -->
+    {% block content %}{% endblock content %}
+
+
+    <!-- 引入导航栏 -->
+    {% include 'blog_footer.html' %}
+
+    </main>
+
+
+     <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="{% static 'bootstrap/jquery-slim.min.js' %}"><\/script>')</script>
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+    {#    {% static 'bootstrap/popper.min.js' %}#}
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    {#    {% static 'bootstrap/bootstrap.min.js' %}#}
+
+    <!-- jquery.js -->
+    <script src="{% static 'jquery/jquery-3.5.1.js' %}"></script>
+    <!-- 引入layer.js -->
+    <script src="{% static 'layer/layer.js' %}"></script>
+    <!-- 在jquery后面引入 -->
+    {% include 'back_to_top_func.html' %}
+
+  </body>
+</html>

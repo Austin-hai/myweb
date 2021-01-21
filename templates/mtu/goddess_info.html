@@ -1,0 +1,81 @@
+{% extends "mtu_wo_slider.html" %}
+
+{% load static %}
+
+<!-- 写入 base.html 中定义的 title -->
+{% block title %}
+    {{ goddess.artist_name }}
+{% endblock title %}
+
+<!-- 写入 base.html 中定义的 content -->
+{% block content %}
+
+    <div id="meinv-wrapper" style="background:#34343e;" >
+       <div class="meinv-home-bg" style="background:#34343e;">
+           <div class="meinv-card">
+	          <div class="avatar-container">
+		          <img src="{{ goddess.thumb.url }}" width="120" height="auto" alt="{{ goddess.artist_name }}{{ goddess.nick_name }}">
+	          </div>
+	          <div class="presonal-info" style="color:#bdcadb;"><h3 class="meinv-name">{{ goddess.artist_name }}</h3> /{{ goddess.nick_name }}</div>
+	          <div class="position-info"><span>{{ goddess.hometown }} / {{ goddess.career }}</span></div>
+	          <div class="info-num">
+	             <div class="node"><p>生日</p><span style="color:#999;">{{ goddess.birthday}}</span></div>
+	             <div class="node"><p>身高</p><span style="color:#999;">{{ goddess.body_height}}</span></div>
+	             <div class="node"><p>体重</p><span style="color:#999;">{{ goddess.body_weight}}</span></div>
+	             <div class="node"><p>三围</p><span style="color:#999;">{{ goddess.body_bra}}-{{ goddess.body_waist}}-{{ goddess.body_butt}}</span></div>
+	          </div>
+           </div>
+       </div>
+       <div class="panel-body">{{ goddess.description|safe }}</div>
+       <!-- relation -->
+       <div class="coverbox" style="background:#34343e;">
+          <div class="cover-tit" style="background:#34343e;color:#bdcadb;border-left: 4px solid #000000;border-bottom: none;">
+	         <div class="title am-fl"><h3>{{ goddess.artist_name }}的写真集</h3></div>
+          </div>
+          <div class="cover-list">
+          <ul>
+              {% for goddess_album in goddess_albums %}
+              <li class="cover-info am-fl" style="float: left;clear: none">
+                  <div class="">
+                     <a href="{% url 'mtu:album_info' goddess_album.id %}" target="_blank">
+                        <img src="{{ goddess_album.thumb.url }}" width="220" height="300" alt="{{ goddess_album.title }}">
+                     </a>
+                  </div>
+                  <div class="title-info">
+                     <a href="{% url 'mtu:album_info' goddess_album.id %}" target="_blank" style="font-size: 0.8rem">{{ goddess_album.title }}</a>
+                  </div>
+              </li>
+              {% endfor %}
+          </ul>
+       </div>
+       </div>
+    </div>
+
+{#    <!-- relation -->#}
+{#    <div class="coverbox" style="background:#34343e;">#}
+{#       <div class="cover-tit">#}
+{#	      <div class="title am-fl"><h3>{{ goddess.artist_name }}的写真集</h3></div>#}
+{#       </div>#}
+{#       <div class="cover-list">#}
+{#          <ul>#}
+{#              {% for goddess_album in goddess_albums %}#}
+{#              <li class="cover-info am-fl" style="float: left;clear: none">#}
+{#                  <div class="">#}
+{#                     <a href="{% url 'mtu:album_info' goddess_album.id %}" target="_blank">#}
+{#                        <img src="{{ goddess_album.thumb.url }}" width="220" height="300" alt="{{ goddess_album.title }}">#}
+{#                     </a>#}
+{#                  </div>#}
+{#                  <div class="title-info">#}
+{#                     <a href="{% url 'mtu:album_info' goddess_album.id %}" target="_blank" style="font-size: 0.8rem">{{ goddess_album.title }}</a>#}
+{#                  </div>#}
+{#              </li>#}
+{#              {% endfor %}#}
+{#          </ul>#}
+{#       </div>#}
+{#    </div>#}
+{#    <div class="am-cf"></div>#}
+{#<!-- hits -->#}
+
+
+
+{% endblock content %}

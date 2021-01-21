@@ -1,0 +1,60 @@
+{% extends "mtuindex.html" %}
+
+{% load static %}
+
+<!-- 写入 base.html 中定义的 title -->
+{% block title %}
+    秀图集
+{% endblock title %}
+
+<!-- 写入 base.html 中定义的 content -->
+{% block content %}
+<div class="container">
+    <div class="m m1 r1">
+        <div class="w1200">
+			<div class="m-title">
+				<h2><a href="{% url 'mtu:goddess_list' %}" title="女神大全">女神大全</a></h2>
+				<i class="ico-bar cor1"></i>
+{#				<p><a href="/yule/meinv/" title="美女图片">美女图片</a>      /      <a href="/yule/rentiyishu/" title="人体艺术">人体艺术</a>      /      <a href="/yule/mingxing/" title="明星图片">明星图片</a></p>#}
+			</div>
+            <div class="m-list ml1">
+				<ul class="cl">
+                {% for goddess in goddesses %}
+					<li style="float: left;clear: none">
+                        <a href="{% url 'mtu:goddess_info' goddess.id %}" title="{{ goddess.artist_name }}" target="_blank" style="margin-bottom: 5px">
+						   <img style="width:224px;height:322px;" src="{{ goddess.thumb.url }}" data-original="#" alt="{{goddess.artist_name }}">
+					    </a>
+                        <div class="title-info"><a href="{% url 'mtu:goddess_info' goddess.id %}" target="_blank">{{ goddess.artist_name }}</a></div>
+                    </li>
+                {% endfor %}
+				</ul>
+			</div>
+			<div class="m-more m-cor1">
+				<a href="{% url 'mtu:goddess_list' %}" title="娱乐图片"> 查看更多女神大全</a>
+			</div>
+		</div>
+	</div>
+    <div class="m m2 r2">
+        <div class="w1200">
+			<div class="m-title">
+				<h2><a href="{% url 'mtu:album_list' %}" title="美女图集">美女图集</a></h2>
+				<i class="ico-bar cor1"></i>
+{#				<p><a href="/yule/meinv/" title="美女图片">美女图片</a>      /      <a href="/yule/rentiyishu/" title="人体艺术">人体艺术</a>      /      <a href="/yule/mingxing/" title="明星图片">明星图片</a></p>#}
+			</div>
+            <div class="m-list ml1">
+                <ul class="cl">
+                    {% for album in albums %}
+					<li><a href="{% url 'mtu:album_info' album.id %}" title="{{ album.title }}" target="_blank">
+						<img style="width: 224px; height: 322px; display: inline;" src="{{ album.thumb.url }}" data-original="{{ album.thumb.url }}" alt="{{ album.title }}">
+						<div class="list-tit"><p>{{ album.title }}</p></div>
+					</a></li>
+                    {% endfor %}
+				</ul>
+			</div>
+			<div class="m-more m-cor1">
+				<a href="{% url 'mtu:album_list' %}" title="美女图集"> 查看更多美女图集</a>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock content %}

@@ -1,0 +1,69 @@
+
+
+<!-- extends表明此页面继承自 base.html 文件 -->
+{% extends "blog_base_woslider.html" %}
+{% load static %}
+{% load article_extras %}
+
+<!-- 写入 base.html 中定义的 title -->
+{% block title %}
+     {{ 归档 }}
+{% endblock title %}
+
+<!-- 写入 base.html 中定义的 content -->
+{% block content %}
+
+<!-- 文章详情 -->
+<div class="container" >
+    <div class="breadcrumbs" style="clear: both;margin-top: 20px; ">
+        <a title="返回首页" href="{% url 'home'%}"><i class="fa fa-home"></i></a><small>&gt;</small>
+        <a href="{% url 'home'%}">小憩 </a>
+        <small>&gt;</small>
+
+    </div>
+
+    <div class="row">
+        <!-- 将原有内容嵌套进新的div中 -->
+        <div class="col-lg-8" style="margin-top: 20px; box-shadow: 0 .5rem 1rem rgba(0,.15,0.8,.15)!important;">
+            <div class="card border-0 rounded-0 mb-3">
+                <div class="card-body f-16 archive">
+
+                    <ul class="pl-4">
+                        {% for month_list in month_list %}
+                              <li>{{ month_list.year }} 年
+
+                                <ul class="pl-4">
+
+                                <li>{{ month_list.month }} 月 (共 1 篇)
+                                    <ul class="pl-4">
+                                        {% for articles_month in articles_month %}
+                                        <li class="text-info">{{ date.month }}-{{ date.day }}&nbsp;&nbsp;<a href="/article/mysqlclient/">{{ articles_month.title }}</a></li>
+                                        {% endfor %}
+                                    </ul>
+                                </li>
+
+                            </ul>
+                               </li>
+
+
+                       {% empty %}
+                        暂无归档！
+                       {% endfor %}
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+    </div>
+</div>
+
+
+
+{% endblock content %}
+
+
+

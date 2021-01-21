@@ -1,0 +1,37 @@
+{% extends "mtu_wo_slider.html" %}
+{% load static %}
+
+<!-- 写入 base.html 中定义的 title -->
+{% block title %}
+    上传专辑图片
+{% endblock title %}
+
+<!-- 写入 base.html 中定义的 content -->
+{% block content %}
+
+
+<!-- 文章详情 -->
+<div class="container">
+    <div class="row">
+        <!-- 将原有内容嵌套进新的div中 -->
+        <div class="col-12">
+           <br>
+           <form action="{% url 'mtu:uploads' %}"
+             method="post"
+             enctype="multipart/form-data"
+             >{% csrf_token %}
+
+             <input type="file"
+                name="file_field"
+                multiple="multiple"
+                >
+             <input type="submit" value="提交">
+           </form>
+
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}
+</body>

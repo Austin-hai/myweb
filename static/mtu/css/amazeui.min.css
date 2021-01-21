@@ -1,0 +1,47 @@
+
+.listbox {
+    margin: 0 auto;
+    width: 1250px;
+    height: 800px;
+    overflow: hidden;
+}
+
+
+
+.listbox .cover-tit {
+    padding: 0 20px;
+    height: 50px;
+    line-height: 50px;
+    background-color: #34343e;
+    border-bottom: 1px solid #eee;
+}
+
+.am-fl {
+    float: left;
+}
+
+
+.listbox .tags-list {
+    margin-top: 10px;
+}
+
+
+.listbox .tags-list li.tags-info {
+    margin: 0 10px 10px 0;
+    padding: 10px;
+    width: 200px;
+    background-color: #161619;
+    font-size: 1.0rem;
+    text-align: center;
+}
+
+.listbox .tags-list li.tags-info a {
+    color: inherit;
+    outline: 0;
+}
+
+.listbox .tags-list li.tags-info span {
+    font-size: 0.8rem;
+    color: #b74b39;
+}
+

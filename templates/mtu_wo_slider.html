@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	{% load static %}
+    <title>{% block title %}{% endblock %}</title>
+	<meta charset="utf-8" />
+	<meta name="applicable-device" content="pc" />
+	<meta name="viewport" content="width=device-width, initial-scale=0.2" />
+	<meta name="referrer" content="origin" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="keywords" content="秀图集，关注艺术摄影" />
+	<meta name="description" content="秀图集是一个IT业余爱好者的免费分享艺术摄影图片，记录和分享美好瞬间！" />
+	<link rel="stylesheet" href="{% static 'mtu/css/style1.css' %}" />
+	<link rel="stylesheet" href="{% static 'mtu/css/app.css' %}" />
+    <link rel="stylesheet" href="{% static 'mtu/index_cover.css' %}">
+
+    <link rel="canonical" href="https://www.tp8.com" />
+	<script type="text/javascript" src="{% static 'mtu/js/jquery1.42.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'mtu/js/jquery.lazyload.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'mtu/js/public.js' %}"></script>
+	<script type = "application/ld+json">
+	{
+		"@context":"https://ziyuan.baidu.com/contexts/cambrian.jsonld",
+		"@id":"https://www.austin.com",
+		"title":"秀图集，关注艺术摄影",
+		"description":"秀图集, 旨在秀图集是一个IT业余爱好者的免费分享艺术摄影图片，记录和分享美好瞬间！",
+		"upDate":"2021-01-09T09:56:55"
+	}
+	</script>
+</head>
+<body>
+
+	<!--top-->
+	<div class="top">
+		<div class="header">
+			<div class="w1200">
+				<div class="logo fl"><a href="{% url 'mtu:homepage' %}" title="">秀图集</a></div>
+				<div class="nav fl">
+					<ul class="cl">
+						<li><a href="{% url 'mtu:homepage' %}" title="秀图集">首页</a></li>
+						<li><a href="{% url 'mtu:goddess_list' %}" title="女神大全">女神大全</a></li><li><a href="{% url 'mtu:album_list' %}" title="美女图集">美女图集</a></li><li><a href="#" title="个人相册">个人相册</a></li><li><a href="{% url 'mtu:goddess_ranking' %}" title="女神排行榜">女神排行榜</a></li><li><a href="{% url 'home' %}" title="小憩">小憩</a></li><li><a href="{% url 'mtu:institution_list' %}" title="写真机构">写真机构</a></li>						<li class="last-slide">
+							<a href="#">更多&nbsp;···</a>
+							<div class="last-nav-down hide">
+								<a href="" title="风景图片">风景图片</a><a href="" title="热门关键词">热门关键词</a>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="info fr">
+					<div class="search fl">
+						<div class="search-show">
+							<div class="search-box">
+                                <form method="get" target="_blank" action="/search.html" class="new-searching-unit" data-regestered="regestered">
+									<input type="text" size="27" name="q" autocomplete="off" placeholder="" value="">
+									<a href="#" title="" class="go"><input style="width:30px;height:30px;" type="submit" value=""></a>
+								</form>
+							</div>
+						</div>
+					</div>
+					<div class="yun fr"><a href="{% url 'mtu:tagcloud' %}" title="标签云">标签云</a></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--end-->
+
+    {% block content %}{% endblock %}
+
+    <!--end-->
+	<div class="footer " style="">
+		<div class="f-u">
+			<div class="w1200">
+                <div class="link">
+					友情链接：<div class="lcontainer"><a href="https://www.tp8.com/yule/meinv/" target="_blank">美女图片</a><a href="https://www.aitaotu.com/" target="_blank">爱套图</a><a href="https://www.meitu131.com/" target="_blank">MEITU131</a><a href="http://www.mm8mm88.com/" target="_blank">美女图片</a><a href="http://www.padtu.com/" target="_blank">平板壁纸</a><a href="https://manmankan.cc/" target="_blank">漫漫看漫画网</a><a href="https://www.diaoss.com/" target="_blank">唯美图</a><a href="http://www.duomeitu.com/" target="_blank">美女图片</a><a href="https://www.tp8.com" target="_blank">tp8</a><a href="https://www.yeitu.net/" target="_blank">亿图美女图库</a><a href="https://www.66826.com/" target="_blank">rtys</a></div>
+				</div>
+			</div>
+		</div>
+
+		<div class="f-d">
+            <div class="w1200">
+				秀图集资源来源于互联网，图片版权归原作者所有，所有资源不得用于商业用途，分享请遵守-非商业性使用 4.0 国际许可协议。 <span>  Copyright  &copy; 2018 <a href="/" title="秀图集">秀图集</a> www.austinstar.top  <a href="">站点地图</a>  <a href="" rel="nofollow" target="_blank">粤ICP备</a></span>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		$(".m-list img").lazyload({effect:'fadeIn'});
+	</script>
+	<script type="text/javascript" src="{% static 'mtu/js/baidu_autopush.js' %}" async></script>
+	<div style="display:none;"><script src="{% static 'mtu/js/z_stat.js' %}" language="JavaScript" async></script></div>
+</body>
+</html>

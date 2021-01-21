@@ -1,0 +1,48 @@
+
+body.night{background: #34343e;color: #ccc;}
+body.night a{color: #9e9e9e;}
+body.night .header, body.home.night .header.scrolled{background: #2a2a32;webkit-box-shadow: 0px 0px 0px 0px #181c27;
+    -ms-box-shadow: 0px 3px 10px 0px #181c27;box-shadow: 0px 0px 0px 0px #181c27;}
+body.night .nav-main li{color: #bdcadb;}
+body.night .nav-main .sub-menu, body.night .nav-right .sub-menu{background: #2a2a32;color:#ccc;}
+body.night .nav-main .sub-menu a, body.night .nav-right .sub-menu a, body.night .nav-right .sub-menu a.money:hover{color: #ccc;}
+body.night .nav-right .sub-menu .money-left, body.night .nav-right .sub-menu .vip-left, body.night .nav-right .sub-menu .cart-left, body.night .nav-right .sub-menu li.item a{background: #34343e; color: #ccc;}
+body.night .nav-right .money-left t{float: right;color: #cacbd0}
+body.night .nav-right .sub-menu:before{border-bottom-color: #232735;}
+body.night .nav-right .vip-left t{float: right;color: #ff5f33;line-height: 22px;margin-top: 5px;}
+body.night .nav-main > li > .sub-menu:before{border-bottom-color: #232735;}
+body.night .nav-main li.menu-item-has-children:after{color:#ccc;}
+body.night .nav-main > li.mega4 > .sub-menu > li:first-child > a:before, body.night .nav-main > li.mega4 > .sub-menu > li:first-child > a, body.night .nav-main > li.mega4 > .sub-menu > li.mg-show > a{background: #1c1f2b}
+body.night .nav-main > li.mega4 > .sub-menu > li.mg-hide > a{background: transparent;}
+body.night .nav-main > li.mega4 > .sub-menu > li.mg-show > a:after{border-bottom-color: #1c1f2b;}
+body.night .nav-main > li.mega4 > .sub-menu > li:first-child > a:after, body.night .nav-main > li.mega4 > .sub-menu > li.mg-show > a:after{border-bottom-color: #232735;}
+body.night .nav-main > li.mega4 > .sub-menu > li > a, body.night .nav-main > li.mega4 > .sub-menu > li > .sub-menu > li > a{border-color:#393f56;}
+body.night .nav-main > li.mega4 > .sub-menu > li:first-child > a:before, body.night .nav-main > li.mega4 > .sub-menu > li:last-child > a:before{background: #393f56;}
+body.night .nav-mobile-show .nav-main{background: #2a2a32;color: #bdcadb;}
+body.night .nav-mobile-show .nav-main > li.menu-item{border-color:#3d3e4291;}
+body.night .nav-mobile-show .nav-main > li > a, body.night .header.nav-mobile-show.scrolled .nav-main > li > a{color: #ccc !important;}
+body.night .nav-mobile-show .nav-right .nav-button a{color:#bdcadb !important;}
+body.night .search-wrap{background: #161619;color:#eaeaea;}
+body.night .search-wrap .search-input{color:#ccc;}
+body.night .search-wrap .search-input::-webkit-input-placeholder{color:#ccc;}
+body.night .breadcrumbs{padding:0 0 15px;font-size:14px;color:#999;margin: -10px 0 0;}
+body.night .breadcrumbs .current{color:#999;}
+body.night .banner{background-color: #34343e;color: #ccc;}
+body.night .mocat, body.night .home-blogs, body.night .home-authors, body.night .vip-why{background: #1c1f2b;}
+body.night .mocats .moli{background: #232735;}
+body.night .mocats .moli ul li > i{background: #313852;color: #bdcadb;}
+
+
+body.night .grids .grid, body.night .lists .grid, body.night .lists .list, body.night .home-blogs ul li{background: #2a2a32;color:#bdcadb;}
+body.night .grids .grid h3 a, body.night .lists .grid h3 a, body.night .lists .list h3 a, body.night .home-blogs ul li h3 a{color:#afafaf;}
+body.night .grids .grid .grid-meta .price .fee, body.night .lists .grid .grid-meta .price .fee, body.night .lists .list .list-meta .price .fee{background: #313852;}
+body.night .grids .grid img, body.night .lists .list img, body.night .lists .grid img, body.night .home-blogs ul li img{background: #34343e;}
+body.night .grids .grid .grid-author{border-color:#393f56;}
+body.night .grids .grid .grid-meta{color:#a5a7ad;padding:0 10px 10px 10px;font-size:12px;height: 26px;overflow: hidden;background: #161619;border-bottom-right-radius: 10px;border-bottom-left-radius: 10px;}
+body.night .grids .grid .cat{padding: 15px 10px 0 10px;display: block;font-size: 12px;color: #999;margin-left: 18px;height: 30px;position: relative;}
+body.night .home-blogs ul li .excerpt, body.night .lists .list .desc, body.night .lists.cols-two .excerpt{color: #666e8e;}
+body.night .filters{background: #2a2a32;}
+body.night .filter-item{border-color:#666;}
+body.night .article-header-box{background: #232735;color: #bdcadb;}
+body.night .header-box-con .custom-metas{background: #33394e;}
+body.night .header-box-con .erphpdown .erphpdown-box-tips{background: transparent;}

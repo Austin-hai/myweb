@@ -1,0 +1,65 @@
+{% extends "mtu_wo_slider.html" %}
+
+{% load static %}
+
+<!-- 写入 base.html 中定义的 title -->
+{% block title %}
+    女神排行榜
+{% endblock title %}
+
+<!-- 写入 base.html 中定义的 content -->
+{% block content %}
+
+<!--main-->
+<div class="coverbox" style="margin-top:0;">
+    <!-- topleft -->
+    <div class="Top-L">
+       <div class="toptype" >
+           <ul>
+               <div class="top-total" ><p>女神排行榜</p></div>
+               <li><i></i><a href="/rank/">总榜</a></li>
+               <li><a href="/rank/dalu">大陆</a></li>
+               <li><a href="/rank/riben">日本</a></li>
+               <li><a href="/rank/oumei">欧美</a></li>
+               <li><a href="/rank/gangtaI">港台</a></li>
+               <li><a href="/rank/hanguo">韩国</a></li>
+           </ul>
+       </div>
+       <div class="toptype" >
+           <ul>
+               <div class="top-total"><p>图集排行榜</p></div>
+               <li><a href="/top/">总榜</a></li>
+           </ul>
+       </div>
+    </div>
+
+    <!-- topright -->
+    <div class="Top-R">
+        <div class="details" >
+             <div class="allrank" >
+                <span >女神排行总榜</span>
+                <span class="time-bbb">每周日18:00以后更新</span>
+             </div>
+             <ul>
+                 {% for goddess in goddesses %}
+                    <li>
+                     <div class="ranknum">
+                            <span class="num" >{{ goddess.ranking }}</span>
+                            <span class="heat">热度</span>
+                            <span class="value" >{{ goddess.hotpoint }}</span>
+                       </div>
+                     <div class="top-thumb"><a href="{% url 'mtu:goddess_info' goddess.id %}" target="_blank"><img src="{{ goddess.thumb.url }}" data-echo="{{ goddess.thumb.url }}" alt="{{ goddess.artist_name }}"></a></div>
+                     <div class="top-info">
+                           <div class="title" ><a  href="{% url 'mtu:goddess_info' goddess.id %}" target="_blank">{{ goddess.artist_name }}</a></div>
+                           <div class="career" style="font-size: 0.8rem;">{{ goddess.hometown }}/{{ goddess.career }}</div>
+                           <div class="intro">{{ goddess.description|safe }}</div>
+                       </div>
+                     <div class="showdetails"><a href="{% url 'mtu:goddess_info' goddess.id %}">查看详情<i class="am-icon-chevron-right"></i></a></div>
+                 </li>
+                    <div class="am-cf"></div>
+                 {% endfor %}
+             </ul>
+        </div>
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,44 @@
+
+{% extends "mtu_wo_slider.html" %}
+{% load static %}
+
+<!-- 写入 base.html 中定义的 title -->
+{% block title %}
+    {{ institution.institution_name }}
+{% endblock title %}
+
+<!-- 写入 base.html 中定义的 content -->
+{% block content %}
+    <div id="meinv-wrapper" style="background: #34343e;">
+
+    <!-- relation -->
+    <div class="coverbox" style="margin-top:0;background: #34343e;">
+       <div class="cover-des" style="border-bottom: none;background: #34343e;">
+          <div class="pagedes am-fl"><h3 style="color: #F6F6F6;">{{ institution.institution_name }}</h3></div>
+       </div>
+       <div class="cover-des" style="border-bottom: none;background: #161619;">
+          <div class="pagedes am-fl" style="color:#bdcadb;font-size: 0.8rem;">{{ institution.description|safe }}</div>
+       </div>
+       <div class="cover-tit" style="color: #F6F6F6;border-bottom: none;background: #34343e;">
+	      <div class="title am-fl"><h3>{{ institution.institution_name }}机构的写真集</h3></div>
+       </div>
+       <div class="cover-list" >
+          <ul>
+              {% for album in albums %}
+              <li class="cover-info am-fl" style="float: left;background: transparent; clear: none">
+                  <div class="">
+                     <a href="{% url 'mtu:album_info' album.id %}" target="_blank">
+                        <img src="{{ album.thumb.url }}" width="220" height="300" alt="{{ album.title }}">
+                     </a>
+                  </div>
+                  <div class="title-info" style="background: #F6F6F6">
+                     <a href="{% url 'mtu:album_info' album.id %}" target="_blank" style="font-size: 0.8rem">{{ album.title }}</a>
+                  </div>
+              </li>
+              {% endfor %}
+          </ul>
+       </div>
+    </div>
+    <div class="am-cf"></div>
+b   </div>
+{% endblock content %}

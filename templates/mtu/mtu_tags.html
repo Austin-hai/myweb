@@ -1,0 +1,97 @@
+
+<!--所有标签-->
+<div class="label mb40">
+    <div class="w1200">
+        <div class="t-title">
+            <h2>所有标签</h2>
+            <i class="ico-bar cor1 ibar1"></i>
+        </div>
+        <div class="bq cl">
+            {% for tag in tag_list %}
+            <a href="{% url 'mtu:alltag' tag.pk %}" title="{{ tag }}" target="_blank">{{ tag }}</a>
+            {% empty %} more
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<!--特征美女-->
+<div class="label mb40">
+    <div class="w1200">
+        <div class="t-title">
+            <h2>特征美女</h2>
+            <i class="ico-bar cor1 ibar1"></i>
+        </div>
+        <div class="bq cl">
+            {% for style in styles %}
+            <a href="" title="{{ style.album_tags }}" target="_blank">{{ style.album_tags }}</a>
+            {% empty %} more
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{##}
+{#<!--地方美女-->#}
+{#<div class="label mb40">#}
+{#    <div class="w1200">#}
+{#        <div class="t-title">#}
+{#            <h2>地方美女</h2>#}
+{#            <i class="ico-bar cor4 ibar1"></i>#}
+{#        </div>#}
+{#        <div class="bq cl">#}
+{#            {% for location in locations %}#}
+{#            <a href="{% url 'mtu:goddess_list' location.pk %}" title="{{ goddess.location }}" target="_blank">{{ goddess.location }}</a>#}
+{#            {% empty %} more#}
+{#            {% endfor %}#}
+{#        </div>#}
+{#    </div>#}
+{#</div>#}
+{##}
+{#<!--场景美女-->#}
+{#<div class="label mb40">#}
+{#    <div class="w1200">#}
+{#        <div class="t-title">#}
+{#            <h2>场景美女</h2>#}
+{#            <i class="ico-bar cor4 ibar1"></i>#}
+{#        </div>#}
+{#        <div class="bq cl">#}
+{#            {% for scene in scenes %}#}
+{#            <a href="{% url 'mtu:album_list' scene.pk %}" title="{{ scene }}" target="_blank">{{ scene }}</a>#}
+{#            {% empty %} more#}
+{#            {% endfor %}#}
+{#        </div>#}
+{#    </div>#}
+{#</div>#}
+{##}
+{#<!--服饰美女-->#}
+{#<div class="label mb40">#}
+{#    <div class="w1200">#}
+{#        <div class="t-title">#}
+{#            <h2>服饰美女</h2>#}
+{#            <i class="ico-bar cor3 ibar1"></i>#}
+{#        </div>#}
+{#        <div class="bq cl">#}
+{#            {% for cloth in cloths %}#}
+{#            <a href="{% url 'mtu:album_list' cloth.pk %}" title="{{ cloth }}" target="_blank">{{ cloth }}</a>#}
+{#            {% empty %} more#}
+{#            {% endfor %}#}
+{#        </div>#}
+{#    </div>#}
+{#</div>#}
+{##}
+{#<!--美女职业-->#}
+{#<div class="label mb40">#}
+{#    <div class="w1200">#}
+{#        <div class="t-title">#}
+{#            <h2>美女职业</h2>#}
+{#            <i class="ico-bar cor5 ibar1"></i>#}
+{#        </div>#}
+{#        <div class="bq cl">#}
+{#            {% for career in careers %}#}
+{#                    <a href="{% url 'mtu:goddess_list'  %}" title="{{ career }}" target="_blank">{{ career }}</a>#}
+{#            {% empty %} more#}
+{#            {% endfor %}#}
+{#        </div>#}
+{#    </div>#}
+{#</div>#}
